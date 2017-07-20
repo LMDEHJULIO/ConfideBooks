@@ -6,6 +6,8 @@
         
         <div class="col-md-8">
                 <h2><%= @book.title %></h2>
+                <h3>Average Rating:  </h3> <div class="average-review-rating" data-score= <%= @average_review %>> </div>
+                <span>Total Reviews - <%= @book.reviews.count%></span>
                 <h3><%= @book.author %></h3>
                 <p><%= @book.description %></p>
         </div>
@@ -41,4 +43,15 @@
                 },
                 path: '/assets/'
         });
+</script>
+
+<script>
+        $('.average-review-rating').raty({
+                readOnly: true,
+                path: '/assets/',
+                score: function(){
+                        return $(this).attr('data-score');
+                }
+                
+        })
 </script>
