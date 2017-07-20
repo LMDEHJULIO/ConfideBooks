@@ -24,9 +24,11 @@
         
 </div>
 
-<%= link_to "Back", root_path%>
-
-<% if user_signed_in? && @book.user_id == current_user.id %>
-        <%= link_to 'Edit', edit_book_path(@book)%>
-        <%= link_to "Delete", book_path(@book), method: :delete, data: {confirm: "Are you sure"}%>
-<%end%>
+<div class="links btn-group"> 
+        <%= link_to "Back", root_path%>
+        
+        <% if user_signed_in? && @book.user_id == current_user.id %>
+                <%= link_to 'Edit', edit_book_path(@book)%>
+                <%= link_to "Delete", book_path(@book), method: :delete, data: {confirm: "Are you sure"}%>
+        <%end%>
+</div>
